@@ -15,17 +15,17 @@ export default defineConfig(() => ({
     tailwindcss(),
   ],
   optimizeDeps: {
-    exclude: ["@tailwindcss/oxide"],
+    exclude: ["@tailwindcss/oxide", "lightningcss"],
   },
   build: {
     minify: "terser",
     sourcemap: true,
     commonjsOptions: {
       include: [/\.js$/],
-      noExternal: ["@tailwindcss/oxide"]
+      noExternal: ["@tailwindcss/oxide", "lightningcss"]
     },
     rollupOptions: {
-      external: ["@tailwindcss/oxide"],
+      external: ["@tailwindcss/oxide", "lightningcss"],
       output: {
         manualChunks: {
           react: ["react", "react-dom"],
