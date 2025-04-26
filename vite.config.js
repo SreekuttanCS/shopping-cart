@@ -1,7 +1,7 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
-import flowbiteReact from "flowbite-react/plugin/vite";
+
 export default defineConfig(() => ({
   plugins: [
     react({
@@ -13,23 +13,24 @@ export default defineConfig(() => ({
       },
     }),
     tailwindcss(),
-    flowbiteReact(),
   ],
   optimizeDeps: {
-    exclude: ["@tailwindcss/oxide-linux-x64-musl"],
+    exclude: ["@tailwindcss/oxide"],
   },
   build: {
     minify: "terser",
     sourcemap: true,
     commonjsOptions: {
       include: [/\.js$/],
+      noExternal: ["@tailwindcss/oxide"]
     },
     rollupOptions: {
+      external: ["@tailwindcss/oxide"],
       output: {
         manualChunks: {
           react: ["react", "react-dom"],
           redux: ["redux", "react-redux"],
-          vendor: ["flowbite-react", "@tailwindcss/vite"],
+          vendor: ["@tailwindcss/vite"],
         },
       },
     },

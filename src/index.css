@@ -2,5 +2,4 @@
 @import "slick-carousel/slick/slick-theme.css";
 
 @import "tailwindcss";
-@plugin "flowbite-react/plugin/tailwindcss";
 @source "../.flowbite-react/class-list.json";
